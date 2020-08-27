@@ -19,9 +19,9 @@ nnoremap <space> :
 
 " nnoremap <leader>, ,
 " plugin support
-filetype off		" need filetype off for this next line
-execute pathogen#infect()
-filetype plugin indent on
+" filetype off		" need filetype off for this next line
+" execute pathogen#infect()
+" filetype plugin indent on
 set nocompatible	" turn off vi compatibility
 set modelines=0		" for security
 
