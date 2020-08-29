@@ -70,12 +70,15 @@ nnoremap <leader>x "md'm
 " nnoremap <leader>n :w:nn
 nnoremap <leader>n :w:n
 nnoremap <leader>i "mP
-nnoremap <leader>p "mp
+" like Cmd V for paste/put
+nnoremap <leader>v "mp
 nnoremap <leader>y m'"my'm''
 nnoremap <leader>r :'m,.
 nnoremap <leader>t :e#
 " for creating new NAAN registry entries
-nnoremap <leader>v !/---vim_naan
+nnoremap <leader>m !/---vim_naan
+nnoremap <leader>q :quit
+nnoremap <leader>z :suspend
 " nnoremap <leader>v !/---./vim_naan
 " xxx
 nnoremap <leader>w :w
