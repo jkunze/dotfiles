@@ -1,4 +1,7 @@
 all:
+	@rsync --info=NAME -a .gitconfig .gitignore .vimrc ~
+
+xall:
 	@for f in .gitconfig .gitignore .vimrc; \
 	do \
 		if [[ $$f -nt ~/$$f ]]; then \

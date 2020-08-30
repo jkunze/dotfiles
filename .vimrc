@@ -60,7 +60,6 @@ nnoremap <leader>x "md'm
 " nnoremap <leader>f :+,$!msfold''
 nnoremap <leader>a :set noai noic
 nnoremap <leader>b :set ai ic
-nnoremap <leader>c :set ai ic
 nnoremap <leader>d "md'm
 nnoremap <leader>x "md'm
 " nnoremap <leader>e F<yf>Pls </hhi
@@ -78,10 +77,10 @@ nnoremap <leader>t :e#
 " for creating new NAAN registry entries
 nnoremap <leader>m !/---vim_naan
 nnoremap <leader>q :quit
-nnoremap <leader>z :suspend
+nnoremap <leader>w :w
+nnoremap <leader>z :w:suspend
 " nnoremap <leader>v !/---./vim_naan
 " xxx
-nnoremap <leader>w :w
 "
 " nnoremap <leader>w <C-w>s<C-w>j
 " trying out alternates to keep left hand from stretching with control key
