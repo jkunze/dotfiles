@@ -36,6 +36,7 @@ set gdefault		" appends g by default to s///; add g yourself to stop
 " set incsearch
 set showmatch
 set hlsearch
+hi Search ctermbg=Brown
 " to turn off annoying search highlight
 nnoremap <leader><leader> :noh<cr>
 " these tab settings seem a wasted opportunity
