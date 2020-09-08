@@ -6,12 +6,19 @@
 "   Ack plugin installed: git clone https://github.com/mileszs/ack.vim.git ~/.vim/bundle/ack.vim
 
 let mapleader = ";"
-" make \ act as ; (trial)
-nnoremap \ ;
+nnoremap <leader>; ;
 " alias jk to escape key (trial)
 inoremap jk <ESC>
+" alias ;a to escape key
+inoremap <leader>a <ESC>
+nnoremap <leader>a <ESC>
+vnoremap <leader>a <ESC>
+"" alias ;; to escape key
+"inoremap <leader><leader> <ESC>
+"nnoremap <leader><leader> <ESC>
+"vnoremap <leader><leader> <ESC>
 
-" alias SP to : and reverse since : requres shift (a chord) for very common key
+" alias SP to : since : requres shift (a chord) for very common key
 nnoremap <space> :
 "        │     (nb: '│' != '|')
 "        └─── mnemonic: go to "space" along full bottom of screen (or keyboard)
@@ -38,7 +45,7 @@ set showmatch
 set hlsearch
 hi Search ctermbg=Brown
 " to turn off annoying search highlight
-nnoremap <leader><leader> :noh<cr>
+nnoremap \ :noh<cr>
 " these tab settings seem a wasted opportunity
 nnoremap <tab> %
 vnoremap <tab> %
@@ -56,32 +63,42 @@ set formatoptions=ltcq1j
 set ruler
 set ai ic
 
-nnoremap <leader>k i<C-R>=strftime("%Y.%m.%d")<CR><CR>
-nnoremap <leader>x "md'm
 " nnoremap <leader>f :+,$!msfold''
-nnoremap <leader>a :set noai noic
-nnoremap <leader>b :set ai ic
-nnoremap <leader>d "md'm
-nnoremap <leader>x "md'm
+" rarer: [ = turn off ai,ic; ] = turn them on again
+nnoremap <leader>[ :set noai noic
+nnoremap <leader>] :set ai ic
 " nnoremap <leader>e F<yf>Pls </hhi
 " nnoremap <leader>g 70| 
 " nnoremap <leader>j 76|F 
 " nnoremap <leader>h 71|F 
 " nnoremap <leader>n :w:nn
-nnoremap <leader>n :w:n
+" like Cmd C for paste/put
+nnoremap <leader>c m'"my'm''
+nnoremap <leader>d "md'm
+nnoremap <leader>e :e<space>
+nnoremap <leader>f :file<space>
 nnoremap <leader>i "mP
-" like Cmd V for paste/put
-nnoremap <leader>v "mp
-nnoremap <leader>y m'"my'm''
-nnoremap <leader>r :'m,.
-nnoremap <leader>t :e#
+nnoremap <leader>k i<C-R>=strftime("%Y.%m.%d")<CR><CR>
+nnoremap <leader>\ i<C-R>=strftime("%Y.%m.%d")<CR><CR>
 " for creating new NAAN registry entries
 nnoremap <leader>m !/---vim_naan
+nnoremap <leader>n :n
 nnoremap <leader>q :quit
+nnoremap <leader>r :'m,.
+nnoremap <leader>t :e#
+" like Cmd V for paste/put
+nnoremap <leader>v "mp
 nnoremap <leader>w :w
-nnoremap <leader>z :w:suspend
+" like Cmd X for paste/put
+nnoremap <leader>x "md'm
+" yank to buffer
+nnoremap <leader>y m'"my'm''
+nnoremap <leader>z :suspend
+" nnoremap <leader>zz :w:suspend
+" nnoremap <leader>wn :w:n
+" nnoremap <leader>wq :w:q
+" nnoremap <leader>nn :w:nn
 " nnoremap <leader>v !/---./vim_naan
-" xxx
 "
 " nnoremap <leader>w <C-w>s<C-w>j
 " trying out alternates to keep left hand from stretching with control key
