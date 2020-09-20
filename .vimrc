@@ -6,17 +6,18 @@
 "   Ack plugin installed: git clone https://github.com/mileszs/ack.vim.git ~/.vim/bundle/ack.vim
 
 let mapleader = ";"
-nnoremap <leader>; ;
 " alias jk to escape key (trial)
 inoremap jk <ESC>
 " alias ;a to escape key
 inoremap <leader>a <ESC>
 nnoremap <leader>a <ESC>
 vnoremap <leader>a <ESC>
-"" alias ;; to escape key
-"inoremap <leader><leader> <ESC>
-"nnoremap <leader><leader> <ESC>
-"vnoremap <leader><leader> <ESC>
+" alias ;; to escape key
+inoremap <leader><leader> <ESC>
+nnoremap <leader><leader> <ESC>
+vnoremap <leader><leader> <ESC>
+" re-expose ; as ;, -- maybe it should be <tab>?
+nnoremap <leader>, ;
 
 " alias SP to : since : requres shift (a chord) for very common key
 nnoremap <space> :
