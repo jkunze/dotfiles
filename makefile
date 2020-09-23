@@ -1,5 +1,6 @@
+FILES= .bash_profile .bashrc .gitconfig .gitignore .vimrc
 all:
-	@rsync --info=NAME -a .gitconfig .gitignore .vimrc ~
+	@rsync --info=NAME -a $(FILES) $(HOME)
 
 xall:
 	@for f in .gitconfig .gitignore .vimrc; \
