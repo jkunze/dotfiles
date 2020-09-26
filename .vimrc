@@ -41,12 +41,11 @@ set ignorecase
 set smartcase
 set gdefault		" appends g by default to s///; add g yourself to stop
 
-" set incsearch
 set showmatch
-set hlsearch
+" keep annoying search highlighting off except temporarily when I hit \
 hi Search ctermbg=Brown
-" to turn off annoying search highlight
-nnoremap \ :noh<cr>
+set nohlsearch
+nnoremap \ :set hlsearch<cr>:sleep 1<cr>:set nohlsearch<cr>
 " these tab settings seem a wasted opportunity
 nnoremap <tab> %
 vnoremap <tab> %
