@@ -12,10 +12,14 @@ inoremap jk <ESC>
 inoremap <leader>a <ESC>
 nnoremap <leader>a <ESC>
 vnoremap <leader>a <ESC>
+" alias ;k to escape key
+inoremap <leader>k <ESC>
+nnoremap <leader>k <ESC>
+vnoremap <leader>k <ESC>
 " alias ;; to escape key
-inoremap <leader><leader> <ESC>
-nnoremap <leader><leader> <ESC>
-vnoremap <leader><leader> <ESC>
+inoremap <leader><leader> ;
+nnoremap <leader><leader> ;
+vnoremap <leader><leader> ;
 " re-expose ; as ;, -- maybe it should be <tab>?
 nnoremap <leader>, ;
 
@@ -45,7 +49,7 @@ set showmatch
 " keep annoying search highlighting off except temporarily when I hit \
 hi Search ctermbg=Brown
 set nohlsearch
-nnoremap \ :set hlsearch<cr>:sleep 1<cr>:set nohlsearch<cr>
+nnoremap \\ :set hlsearch<cr>:sleep 1<cr>:set nohlsearch<cr>
 " these tab settings seem a wasted opportunity
 nnoremap <tab> %
 vnoremap <tab> %
@@ -78,7 +82,6 @@ nnoremap <leader>d "md'm
 nnoremap <leader>e :e<space>
 nnoremap <leader>f :file<space>
 nnoremap <leader>i "mP
-nnoremap <leader>k i<C-R>=strftime("%Y.%m.%d")<CR><CR>
 nnoremap <leader>\ i<C-R>=strftime("%Y.%m.%d")<CR><CR>
 " for creating new NAAN registry entries
 nnoremap <leader>m !/---vim_naan
