@@ -12,16 +12,16 @@ inoremap jk <ESC>
 inoremap <leader>a <ESC>
 nnoremap <leader>a <ESC>
 vnoremap <leader>a <ESC>
-" alias ;k to escape key
-inoremap <leader>k <ESC>
-nnoremap <leader>k <ESC>
-vnoremap <leader>k <ESC>
+" alias ;l to escape key
+inoremap <leader>l <ESC>
+nnoremap <leader>l <ESC>
+vnoremap <leader>l <ESC>
 " alias ;; to escape key
 inoremap <leader><leader> ;
 nnoremap <leader><leader> ;
 vnoremap <leader><leader> ;
 " re-expose ; as ;, -- maybe it should be <tab>?
-nnoremap <leader>, ;
+"nnoremap <leader>, ;
 
 " alias SP to : since : requres shift (a chord) for very common key
 nnoremap <space> :
@@ -79,10 +79,10 @@ nnoremap <leader>] :set ai ic
 " like Cmd C for paste/put
 nnoremap <leader>c m'"my'm''
 nnoremap <leader>d "md'm
-nnoremap <leader>e :e<space>
+nnoremap <leader>e :e
 nnoremap <leader>f :file<space>
 nnoremap <leader>i "mP
-nnoremap <leader>\ i<C-R>=strftime("%Y.%m.%d")<CR><CR>
+nnoremap <leader>k i<C-R>=strftime("%Y.%m.%d")<CR><CR><ESC>
 " for creating new NAAN registry entries
 nnoremap <leader>m !/---vim_naan
 nnoremap <leader>n :n
@@ -90,6 +90,7 @@ nnoremap <leader>q :quit
 nnoremap <leader>r :'m,.
 nnoremap <leader>t :e#
 " like Cmd V for paste/put
+nnoremap <leader>p "mp
 nnoremap <leader>v "mp
 nnoremap <leader>w :w
 " like Cmd X for paste/put
