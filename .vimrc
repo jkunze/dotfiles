@@ -50,7 +50,7 @@ set showmatch
 hi Search ctermbg=Brown
 set nohlsearch
 nnoremap \\ :set hlsearch<cr>:sleep 1<cr>:set nohlsearch<cr>
-inoremap <TAB> <ESC>
+inoremap <leader><TAB> <ESC>
 " these tab settings seem a wasted opportunity
 nnoremap <tab> %
 vnoremap <tab> %
