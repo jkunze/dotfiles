@@ -92,7 +92,7 @@ nnoremap <leader>r :'m,.
 nnoremap <leader>t :e#
 " like Cmd V for paste/put
 nnoremap <leader>p "mp
-nnoremap <leader>q gqj
+nnoremap <leader>g gqj
 nnoremap <leader>v "mp
 inoremap <leader>w <ESC>:w
 nnoremap <leader>w :w
