@@ -50,6 +50,7 @@ set showmatch
 hi Search ctermbg=Brown
 set nohlsearch
 nnoremap \\ :set hlsearch<cr>:sleep 1<cr>:set nohlsearch<cr>
+inoremap <TAB> <ESC>
 " these tab settings seem a wasted opportunity
 nnoremap <tab> %
 vnoremap <tab> %
@@ -91,7 +92,9 @@ nnoremap <leader>r :'m,.
 nnoremap <leader>t :e#
 " like Cmd V for paste/put
 nnoremap <leader>p "mp
+nnoremap <leader>q gqj
 nnoremap <leader>v "mp
+inoremap <leader>w <ESC>:w
 nnoremap <leader>w :w
 " like Cmd X for paste/put
 nnoremap <leader>x "md'm
