@@ -94,8 +94,8 @@ nnoremap <leader>t :e#
 nnoremap <leader>p "mp
 nnoremap <leader>g gqj
 nnoremap <leader>v "mp
-inoremap <leader>w <ESC>:w
-nnoremap <leader>w :w
+nnoremap <leader>w <ESC>:w
+" nnoremap <leader>w :w
 " like Cmd X for paste/put
 nnoremap <leader>x "md'm
 " yank to buffer
