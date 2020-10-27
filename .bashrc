@@ -85,32 +85,32 @@ alias mkperl='perl Makefile.PL INSTALL_BASE=$PERL_INSTALL_BASE'
 
 # XXX should source these from $se/s/n2t/service.cfg
 
-n2prda='n2t@ids-n2t-prd-2a.n2t.net'
-	alias n2prda="ssh $n2prda"
-n2prdb='n2t@ids-n2t-prd-2b.n2t.net'
-	alias n2prdb="ssh $n2prdb"
-ezprd='ezid@ezid.cdlib.org'
-	alias ezprd="ssh $ezprd"
-n2stga='n2t@ids-n2t-stg-2a.n2t.net'
-	alias n2stga="ssh $n2stga"
-n2stgb='n2t@ids-n2t-stg-2b.n2t.net'
-	alias n2stgb="ssh $n2stgb"
-n2stgc='n2t@ids-n2t-stg-2c.n2t.net'
-	alias n2stgc="ssh $n2stgc"
-n2dev='n2t@ids-n2t-dev.n2t.net'
+#n2prda='n2t@ids-n2t-prd-2a.n2t.net'
+#	alias n2prda="ssh $n2prda"
+#n2prdb='n2t@ids-n2t-prd-2b.n2t.net'
+#	alias n2prdb="ssh $n2prdb"
+#n2stga='n2t@ids-n2t-stg-2a.n2t.net'
+#	alias n2stga="ssh $n2stga"
+#n2stgb='n2t@ids-n2t-stg-2b.n2t.net'
+#	alias n2stgb="ssh $n2stgb"
+#n2stgc='n2t@ids-n2t-stg-2c.n2t.net'
+#	alias n2stgc="ssh $n2stgc"
+#n2dev='n2t@ids-n2t-dev.n2t.net'
+#	alias n2dev="ssh $n2dev"
+n2dev='n2t@ids-n2t2-dev.n2t.net'
 	alias n2dev="ssh $n2dev"
-n2dev2='n2t@ids-n2t2-dev.n2t.net'
-	alias n2dev2="ssh $n2dev2"
-n2stg2='n2t@ids-n2t2-stg.n2t.net'
-	alias n2stg2="ssh $n2stg2"
-n2prd2='n2t@ids-n2t2-prd.n2t.net'
-	alias n2prd2="ssh $n2prd2"
-n2devb='n2t@ids-n2t2-dev-2b.n2t.net'
-	alias n2devb="ssh $n2devb"
+n2stg='n2t@ids-n2t2-stg.n2t.net'
+	alias n2stg="ssh $n2stg"
+n2prd='n2t@ids-n2t2-prd.n2t.net'
+	alias n2prd="ssh $n2prd"
+#n2devb='n2t@ids-n2t2-dev-2b.n2t.net'
+#	alias n2devb="ssh $n2devb"
 n2edina='n2t@n2tlx.edina.ac.uk'
 	alias n2edina="ssh $n2edina"
 yzdev='yamz@ids-yamz2-dev.yamz.net'
 	alias yzdev="ssh $yzdev"
+ezprd='ezid@ezid.cdlib.org'
+	alias ezprd="ssh $ezprd"
 
 alias ezmonit='~/ezidclient p admin:$(wegnpw ezidadmin) pause monitor'
 alias zp='ezcl p admin:$(wegnpw ezidadmin) pause'
@@ -214,6 +214,7 @@ function z() { suspend "$@"; }
 function pd() { pushd "$@"; }
 function pp() { popd "$@"; }
 function ll() { ls -lF "$@"; }
+function view() { command vim -R "$@"; }
 
 # usage:  mm any_command
 #function mm()  { $* $2 $3 $4 $5 $6 $7 $8 $9 | 2>&1 more ; }
@@ -413,7 +414,7 @@ svu cur			# this is what we want by default
 
 # XXX maybe these should be set by svurun?
 sa=$sv/apache2
-sh=$sa/htdocs/e
+she=$sa/htdocs/e
 se=$sv/build/eggnog
 sn=~/n2t_create
 
