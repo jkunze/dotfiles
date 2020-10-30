@@ -414,7 +414,8 @@ svu cur			# this is what we want by default
 
 # XXX maybe these should be set by svurun?
 sa=$sv/apache2
-she=$sa/htdocs/e
+sh=$sa/htdocs
+she=$sh/e
 se=$sv/build/eggnog
 sn=~/n2t_create
 

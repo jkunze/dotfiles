@@ -94,7 +94,8 @@ nnoremap <leader>t :e#
 nnoremap <leader>p "mp
 nnoremap <leader>g gqj
 nnoremap <leader>v "mp
-nnoremap <leader>w <ESC>:w
+nnoremap <leader>w :w
+inoremap <leader>w <ESC>:w
 " nnoremap <leader>w :w
 " like Cmd X for paste/put
 nnoremap <leader>x "md'm
