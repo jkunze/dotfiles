@@ -253,6 +253,64 @@ EOT
 	openssl x509 -in "$1" -text -noout
 }
 
+function error_log () {
+
+	local File=$( mrm $sa/logs/error_log )
+	local pattern=" AH[^:]*: "
+	[[ ! "${1:-}" ]] && {
+		cat << EOT 1>&2
+
+Usage: error_log [ -N | -f ] [ File ]
+
+This function prints just the bare Apache error_log messages (/$pattern/),
+minus the copious rewrite messages. By default it prints all lines from the
+most recently modified log*, or from the given File. To print just the last
+N lines, use -N, or to print lines as they arrive in the log, use -f.
+
+* Current log: $File
+
+EOT
+		return 1
+	}
+	local follow=
+	local N=
+	local arg
+	for arg in "$@"
+	do
+		[[ "${1:-}" == -f ]] && {
+			follow=1
+			shift
+			continue
+		}
+		[[ "${1:-}" =~ ^- ]] && {
+			N=${1#-}
+			grep '^[0-9][0-9]*$' <<< "$N" >& /dev/null || {
+				echo "error: integer expected for -N arg," \
+					"not $N" 1>&2
+				return 1
+			}
+			shift
+			continue
+		}
+	done
+	[[ "${1:-}" ]] && {
+		File="${1:-}"
+		shift
+	}
+	local tailargs=()
+	if [[ "$follow" ]]
+	then
+		tailargs=(-f)
+	elif [[ "$N" ]]
+	then
+		tailargs=(-n $N)
+	else
+		tailargs=(-n +1)		# whole file
+	fi
+	echo "grep \"$pattern\" $File | tail ${tailargs[@]}"
+	grep "$pattern" $File | tail ${tailargs[@]}
+}
+
 function eztest () {
 	ezcl p - status '*'
 	echo -n "mint test: "
