@@ -6,8 +6,6 @@
 "   Ack plugin installed: git clone https://github.com/mileszs/ack.vim.git ~/.vim/bundle/ack.vim
 
 let mapleader = ";"
-" alias jk to escape key (trial)
-inoremap jk <ESC>
 " alias ;a to escape key
 inoremap <leader>a <ESC>
 nnoremap <leader>a <ESC>
