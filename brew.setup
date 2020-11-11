@@ -1,0 +1,104 @@
+# XXX check out .inputrc .curlrc .wgetrc .functions
+
+# Before running this, install homebrew (and Xcode as a side-effect) with
+#   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+# Later, on a per-sv (service version) basis, also, install perlbrew.
+
+# YYY=to consider installing
+
+# Start terminal and install a modern version of Bash.
+brew install bash
+# YYY brew install bash-completion2
+
+# Change shell to newly installed bash.
+sudo sh -c "echo /usr/local/bin/bash  >> /etc/shells"
+sudo chsh -s /usr/local/bin/bash
+
+# Install apps using Homebrew.
+brew cask install iterm2
+brew cask install brave-browser
+brew cask install firefox
+
+# Install command-line tools using Homebrew.
+
+# Install GNU core utilities (those that come with macOS are outdated).
+# Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
+# YYY brew install coreutils
+# YYY ln -s "${BREW_PREFIX}/bin/gsha256sum" "${BREW_PREFIX}/bin/sha256sum"
+
+# Install some other useful utilities like `sponge`.
+# YYY brew install moreutils
+# Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed.
+# YYY brew install findutils
+# Install GNU `sed`, overwriting the built-in `sed`.
+# YYY brew install gnu-sed --with-default-names
+
+# Install `wget` with IRI support.
+# YYY brew install wget --with-iri
+brew install wget
+
+# Install GnuPG to enable PGP-signing commits.
+# YYY brew install gnupg
+
+# Install more recent versions of some macOS tools.
+# YYY brew install vim --with-override-system-vi
+# grep arrives as ggrep (or grep in /usr/local/opt/grep/libexec/gnubin)
+brew install grep
+# YYY brew install openssh
+# YYY brew install screen
+# YYY brew install php
+# YYY brew install gmp
+
+# Install font tools.
+# YYY brew tap bramstein/webfonttools
+# YYY brew install sfnt2woff
+# YYY brew install sfnt2woff-zopfli
+# YYY brew install woff2
+
+# Install some CTF tools; see https://github.com/ctfs/write-ups.
+# YYY brew install aircrack-ng
+# YYY brew install bfg
+# YYY brew install binutils
+# YYY brew install binwalk
+# YYY brew install cifer
+# YYY brew install dex2jar
+# YYY brew install dns2tcp
+# YYY brew install fcrackzip
+# YYY brew install foremost
+# YYY brew install hashpump
+# YYY brew install hydra
+# YYY brew install john
+# YYY brew install knock
+# YYY brew install netpbm
+# YYY brew install nmap
+# YYY brew install pngcheck
+# YYY brew install socat
+# YYY brew install sqlmap
+# YYY brew install tcpflow
+# YYY brew install tcpreplay
+# YYY brew install tcptrace
+# YYY brew install ucspi-tcp # `tcpserver` etc.
+# YYY brew install xpdf
+# YYY brew install xz
+
+# Install other useful binaries.
+# YYY brew install ack
+#brew install exiv2
+brew install git
+# YYY brew install git-lfs
+# YYY brew install gs
+# YYY brew install imagemagick --with-webp
+# YYY brew install lua
+brew install lynx
+# YYY brew install p7zip
+# YYY brew install pigz
+# YYY brew install pv
+# YYY brew install rename
+# YYY brew install rlwrap
+# YYY brew install ssh-copy-id
+brew install tree
+# YYY brew install vbindiff
+# YYY brew install zopfli
+
+# Remove outdated versions from the cellar.
+# YYY brew cleanup
