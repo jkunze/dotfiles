@@ -1,4 +1,5 @@
 # XXX check out .inputrc .curlrc .wgetrc .functions
+# XXX grep arrives as ggrep (or grep in /usr/local/opt/grep/libexec/gnubin)
 
 # Before running this, install homebrew (and Xcode as a side-effect) with
 #   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
@@ -33,17 +34,29 @@ brew cask install firefox
 # Install GNU `sed`, overwriting the built-in `sed`.
 # YYY brew install gnu-sed --with-default-names
 
-# Install `wget` with IRI support.
-# YYY brew install wget --with-iri
+# YYY brew install wget --with-iri Install `wget` with IRI support.
 brew install wget
 
-# Install GnuPG to enable PGP-signing commits.
-# YYY brew install gnupg
+brew tap heroku/brew && brew install heroku
 
 # Install more recent versions of some macOS tools.
 # YYY brew install vim --with-override-system-vi
 # grep arrives as ggrep (or grep in /usr/local/opt/grep/libexec/gnubin)
 brew install grep
+brew install git
+brew install jq
+brew install logrotate
+brew install lynx
+brew install postgresql
+brew install python3
+brew install ruby
+brew install sphinx-doc
+brew install tree
+brew install youtube-dl
+
+# Install GnuPG to enable PGP-signing commits.
+# YYY brew install gnupg
+
 # YYY brew install openssh
 # YYY brew install screen
 # YYY brew install php
@@ -84,19 +97,16 @@ brew install grep
 # Install other useful binaries.
 # YYY brew install ack
 #brew install exiv2
-brew install git
 # YYY brew install git-lfs
 # YYY brew install gs
 # YYY brew install imagemagick --with-webp
 # YYY brew install lua
-brew install lynx
 # YYY brew install p7zip
 # YYY brew install pigz
 # YYY brew install pv
 # YYY brew install rename
 # YYY brew install rlwrap
 # YYY brew install ssh-copy-id
-brew install tree
 # YYY brew install vbindiff
 # YYY brew install zopfli
 
