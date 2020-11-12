@@ -15,11 +15,6 @@ brew install bash
 sudo sh -c "echo /usr/local/bin/bash  >> /etc/shells"
 sudo chsh -s /usr/local/bin/bash
 
-# Install apps using Homebrew.
-brew cask install iterm2
-brew cask install brave-browser
-brew cask install firefox
-
 # Install command-line tools using Homebrew.
 
 # Install GNU core utilities (those that come with macOS are outdated).
@@ -53,6 +48,20 @@ brew install ruby
 brew install sphinx-doc
 brew install tree
 brew install youtube-dl
+
+# Install apps using Homebrew.
+brew cask install iterm2
+
+brew cask install brave-browser
+brew cask install firefox
+brew cask install slack
+brew cask install strongvpn
+
+# Docker
+brew install docker
+brew install docker-machine
+brew cask install virtualbox
+brew install docker-compose
 
 # Install GnuPG to enable PGP-signing commits.
 # YYY brew install gnupg
