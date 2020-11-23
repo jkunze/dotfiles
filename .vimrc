@@ -35,7 +35,7 @@ nnoremap <space> :
 set nocompatible	" turn off vi compatibility
 set modelines=0		" for security
 
-set clipboard=unnamedplus
+" set clipboard=unnamedplus
 " nnoremap / /\v
 " vnoremap / /\v
 
