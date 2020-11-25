@@ -1,5 +1,4 @@
 # XXX check out .inputrc .curlrc .wgetrc .functions
-# XXX grep arrives as ggrep (or grep in /usr/local/opt/grep/libexec/gnubin)
 
 # Before running this, install homebrew (and Xcode as a side-effect) with
 #   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
@@ -7,8 +6,9 @@
 
 # YYY=to consider installing
 
-# Start terminal and install a modern version of Bash.
+# Start terminal and install a modern version of Bash and rsync.
 brew install bash
+brew install rsync
 # YYY brew install bash-completion2
 
 # Change shell to newly installed bash.
