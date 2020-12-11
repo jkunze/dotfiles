@@ -48,6 +48,8 @@ brew install ruby
 brew install sphinx-doc
 brew install tree
 brew install youtube-dl
+# next one is needed by youtube-dl
+brew install ffmpeg
 
 # Install apps using Homebrew.
 brew cask install iterm2
