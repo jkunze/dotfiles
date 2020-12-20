@@ -45,6 +45,7 @@ brew install lynx
 brew install postgresql
 brew install python3
 brew install ruby
+brew install go
 brew install sphinx-doc
 brew install tree
 brew install youtube-dl
