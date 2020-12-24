@@ -57,6 +57,7 @@ brew cask install iterm2
 
 brew cask install brave-browser
 brew cask install firefox
+brew install --cask opera
 brew cask install slack
 brew cask install strongvpn
 
