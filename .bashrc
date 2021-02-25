@@ -1,5 +1,7 @@
 # This file should be source'd by .bash_profile.
 
+# NOTE: more functions (eg, zm()) brought in via source ~/.profile.d/$whoami
+
 # This file of bash settings is source'd by .bash_profile on shell start up to
 # create an environment suitable for N2T administration, among other things.
 
