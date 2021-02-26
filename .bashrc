@@ -87,26 +87,18 @@ alias mkperl='perl Makefile.PL INSTALL_BASE=$PERL_INSTALL_BASE'
 
 # XXX should source these from $se/s/n2t/service.cfg
 
-#n2prda='n2t@ids-n2t-prd-2a.n2t.net'
-#	alias n2prda="ssh $n2prda"
-#n2prdb='n2t@ids-n2t-prd-2b.n2t.net'
-#	alias n2prdb="ssh $n2prdb"
-#n2stga='n2t@ids-n2t-stg-2a.n2t.net'
-#	alias n2stga="ssh $n2stga"
-#n2stgb='n2t@ids-n2t-stg-2b.n2t.net'
-#	alias n2stgb="ssh $n2stgb"
-#n2stgc='n2t@ids-n2t-stg-2c.n2t.net'
-#	alias n2stgc="ssh $n2stgc"
-#n2dev='n2t@ids-n2t-dev.n2t.net'
-#	alias n2dev="ssh $n2dev"
 n2dev='n2t@ids-n2t2-dev.n2t.net'
 	alias n2dev="ssh $n2dev"
 n2stg='n2t@ids-n2t2-stg.n2t.net'
 	alias n2stg="ssh $n2stg"
 n2prd='n2t@ids-n2t2-prd.n2t.net'
 	alias n2prd="ssh $n2prd"
-#n2devb='n2t@ids-n2t2-dev-2b.n2t.net'
-#	alias n2devb="ssh $n2devb"
+n2dkdev='n2t@ids-n2tdocker-dev.n2t.net'
+	alias n2dkdev="ssh $n2dkdev"
+n2dkstg='n2t@ids-n2tdocker-stg.n2t.net'
+	alias n2dkstg="ssh $n2dkstg"
+n2dkprd='n2t@ids-n2tdocker-prd.n2t.net'
+	alias n2dkprd="ssh $n2dkprd"
 n2edina='n2t@n2tlx.edina.ac.uk'
 	alias n2edina="ssh $n2edina"
 yzdev='yamz@ids-yamz2-dev.yamz.net'
