@@ -55,12 +55,12 @@ brew install ffmpeg
 
 # Install apps using Homebrew.
 brew install --cask iterm2
-
 brew install --cask brave-browser
 brew install --cask firefox
 brew install --cask opera
 brew install --cask slack
 brew install --cask strongvpn
+brew install --cask alfred
 
 # Docker
 brew install docker
