@@ -60,7 +60,7 @@ brew install --cask firefox
 brew install --cask opera
 brew install --cask slack
 brew install --cask strongvpn
-brew install --cask alfred
+#brew install --cask alfred
 
 # Docker
 brew install docker
