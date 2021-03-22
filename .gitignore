@@ -1,6 +1,10 @@
 # Compiled Python files
 *.pyc
 
+# Private part of service, eg, system configuration details
+private
+*.private
+
 # Folder view configuration files
 .DS_Store
 Desktop.ini
