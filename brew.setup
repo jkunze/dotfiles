@@ -46,6 +46,7 @@ brew install postgresql
 brew install python3
 brew install ruby
 brew install go
+brew install pandoc
 brew install sphinx-doc
 brew install tree
 brew install youtube-dl
@@ -60,6 +61,7 @@ brew install --cask firefox
 brew install --cask opera
 brew install --cask slack
 brew install --cask strongvpn
+brew install --cask 1password
 #brew install --cask alfred
 
 # Docker
