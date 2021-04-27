@@ -51,6 +51,8 @@ brew install sphinx-doc
 brew install tree
 brew install youtube-dl
 brew install dropbox
+# fuzzy finder
+brew install fzf
 # next one is needed by youtube-dl
 brew install ffmpeg
 
