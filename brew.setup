@@ -51,12 +51,14 @@ brew install sphinx-doc
 brew install tree
 brew install youtube-dl
 brew install dropbox
-# fuzzy finder
-brew install fzf
-# rg command
-brew install ripgrep
 # next one is needed by youtube-dl
 brew install ffmpeg
+brew install exif
+
+# fuzzy finder -- drop?
+brew install fzf
+# rg command -- drop?
+brew install ripgrep
 
 # Install apps using Homebrew.
 brew install --cask iterm2
