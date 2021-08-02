@@ -54,6 +54,7 @@ brew install dropbox
 # next one is needed by youtube-dl
 brew install ffmpeg
 brew install exif
+brew install pyenv
 
 # fuzzy finder -- drop?
 brew install fzf
