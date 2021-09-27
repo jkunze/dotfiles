@@ -1,5 +1,7 @@
 # XXX check out .inputrc .curlrc .wgetrc .functions
 
+# run "brew doctor" to check on health of setup
+
 # Before running this, install homebrew (and Xcode as a side-effect) with
 #   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 # Later, on a per-sv (service version) basis, also, install perlbrew.
@@ -40,11 +42,24 @@ brew tap heroku/brew && brew install heroku
 brew install grep
 brew install git
 brew install jq
+brew install csvkit
 brew install logrotate
 brew install lynx
 brew install postgresql
 brew install python3
+
+#brew install rbenv ruby-build
+#rbenv install 2.7.4
+#rbenv global 2.7.4
+
+# ruby/rails stuff
+#brew install llvm
+#brew install rbenv ruby-build
+#ruby -v
+#echo ' if which rbenv > /dev/null; then rbenv init -; fi' >> xxx
+#echo 'if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi' >> xxx
 #brew install ruby
+
 brew install go
 brew install pandoc
 brew install sphinx-doc

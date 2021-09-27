@@ -5,7 +5,7 @@
 # This file of bash settings is source'd by .bash_profile on shell start up to
 # create an environment suitable for N2T administration, among other things.
 
-PATH=$HOME/local/bin:$PATH
+PATH=$HOME/local/bin:/usr/local/sbin:$PATH
 
 #function svu { eval `svu_run "$PS1"\|\|\|b $*`; }
 if [ -f "$HOME/.svudef" ]; then
@@ -22,6 +22,12 @@ export TMPDIR=$HOME/sv		# make Berkeley DB TMPDIR not be tiny /tmp
 
 export LESS='ieFRX'	# ignore case, quit on 2nd EOF, honor color escapes,...
 export LESSCHARSET=utf-8
+
+## Some ruby (uses llvm) and rails settings
+#export PATH="/usr/local/opt/llvm/bin:$PATH"
+#export LDFLAGS="-L/usr/local/opt/llvm/lib"
+#export CPPFLAGS="-I/usr/local/opt/llvm/include"
+#if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # This PYTHONPATH setting lets us use ~/n2t_create/mdsadmin.
 #export PYTHONPATH=$HOME/sv/cur/lib64/python2.6/dist-packages
@@ -214,18 +220,23 @@ function view() { command vim -R "$@"; }
 #function mm()  { $* $2 $3 $4 $5 $6 $7 $8 $9 | 2>&1 more ; }
 function mm()   { "$@" | 2>&1 less ; }
 function g()	{ git "$@" ; }
+
+# Grep: -d skip = "skip directories", -P = "Perl regexps", -i = "ignore case"
 # usage:  gr pattern any_command
-function gr() { $2 $3 $4 $5 $6 $7 $8 $9 | grep -i "$1" ; }
-function grep() { command grep -d skip "$@"; }
-function grepi() { command grep -id skip "$@"; }
+function gr() { $2 $3 $4 $5 $6 $7 $8 $9 | grep -Pi "$1" ; }
+function grep() { command grep -Pd skip "$@"; }
+function grepi() { command grep -Pid skip "$@"; }
 # -d skip means "skip directories"; -r after it says "but do recurse"
-function grepr() { command grep -id skip -r "$@"; }
+function grepr() { command grep -Pid skip -r "$@"; }
+
 function hd()   { "$@" | head -5 ; }
 function hd1()  { "$@" | head -1 ; }
 function hd2()  { "$@" | head -10 ; }
+
 function llt()  { hd ls -lt ; }
 function llt1() { hd1 ls -lt ; }
 function llt2() { hd2 ls -lt ; }
+
 function val { v=$(bc <<< "scale=5; "$@""); echo v=$v ; }
 function v { v=`sed "s/  */+/g" <<< "scale=5;"$@"" | bc`; echo v=$v; }
 
