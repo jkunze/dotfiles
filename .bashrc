@@ -1,11 +1,15 @@
 # This file should be source'd by .bash_profile.
 
-# NOTE: more functions (eg, zm()) brought in via source ~/.profile.d/$whoami
+# NOTE: $PATH settings and more functions (eg, zm()) are brought in via
+#
+#    source ~/.profile.d/$whoami
+#
+# which is source'd by .bash_profile. This rest of this file of bash settings
+# is source'd by .bash_profile on shell start up to create an environment
+# suitable for N2T administration, among other things.
 
-# This file of bash settings is source'd by .bash_profile on shell start up to
-# create an environment suitable for N2T administration, among other things.
-
-PATH=$HOME/local/bin:/usr/local/sbin:$PATH
+# A starter $PATH definition, modified by "source .profile.d/$whoami"
+PATH=$HOME/local/bin:$PATH
 
 #function svu { eval `svu_run "$PS1"\|\|\|b $*`; }
 if [ -f "$HOME/.svudef" ]; then
@@ -22,12 +26,6 @@ export TMPDIR=$HOME/sv		# make Berkeley DB TMPDIR not be tiny /tmp
 
 export LESS='ieFRX'	# ignore case, quit on 2nd EOF, honor color escapes,...
 export LESSCHARSET=utf-8
-
-## Some ruby (uses llvm) and rails settings
-#export PATH="/usr/local/opt/llvm/bin:$PATH"
-#export LDFLAGS="-L/usr/local/opt/llvm/lib"
-#export CPPFLAGS="-I/usr/local/opt/llvm/include"
-#if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # This PYTHONPATH setting lets us use ~/n2t_create/mdsadmin.
 #export PYTHONPATH=$HOME/sv/cur/lib64/python2.6/dist-packages
@@ -177,7 +175,7 @@ if [ ! -z "${PS1:-}" ]; then		# if interactive shell
 			gitish=1		# git repo present
 		#[[ "$gitish" && ! $( tail -n1 <<< "$dvcs_dirty" ) =~ \
 		#		'nothing to commit, working' ]] && {
-		[[ "$gitish" && $( grep -vs '^??' <<< "$dvcs_dirty" ) ]] && {
+		[[ "$gitish" && $( grep -vs '^\?\?' <<< "$dvcs_dirty" ) ]] && {
 			echo "$dvcs_dirty_mark"
 			return
 		}
