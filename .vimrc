@@ -27,6 +27,9 @@ nnoremap <space> :
 "        └─── mnemonic: go to "space" along full bottom of screen (or keyboard)
 " nnoremap : ;
 
+" ALT alias SP to ; "find again forward" is very common; (find again back = ,)
+nnoremap <space> ;
+
 " nnoremap <leader>, ,
 " plugin support
 " filetype off		" need filetype off for this next line
