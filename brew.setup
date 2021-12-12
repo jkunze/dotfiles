@@ -51,6 +51,8 @@ brew services start postgresql
 brew install mysql
 #brew services start mysql
 
+# gh = github CLI
+brew install gh
 brew install python3
 brew install pyenv
 brew install rbenv ruby-build
