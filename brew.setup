@@ -43,6 +43,7 @@ brew install grep
 brew install git
 brew install jq
 brew install csvkit
+brew install xsv
 brew install logrotate
 brew install lynx
 brew install sqlite3
