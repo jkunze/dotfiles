@@ -28,3 +28,6 @@
 	outgoing = ! git fetch && git lg origin/main..
 [init]
 	defaultBranch = main
+[includeIf "gitdir:~/arka/"]
+	path = ~/arka/.gitconfig
+

@@ -8,6 +8,9 @@
 
 # YYY=to consider installing
 
+# non-brew install
+# curl -fsSL https://get.deta.dev/cli.sh | sh
+
 # Start terminal and install a modern version of Bash and rsync.
 brew install bash
 brew install rsync
