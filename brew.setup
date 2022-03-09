@@ -2,7 +2,13 @@
 #==== ubuntu set up ===========
 #================
 
+# Mac Modifier keys (do this again for external keyboard)
+#   swap caps lock and control, control and option
+#   add shortcut shift-command-, for "System Preferences..." (exact string)
+
 # run "brew doctor" to check on health of setup
+
+# Install Cisco Anyconnect if need be to support VPN. Delete the Cisco Socket Filter application but NOT the Anyconnect client.
 
 # Before running this, install homebrew (and Xcode as a side-effect) with
 #   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
@@ -155,3 +161,4 @@ brew install --cask docker
 
 # Remove outdated versions from the cellar.
 # YYY brew cleanup
+
