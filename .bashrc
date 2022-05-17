@@ -35,7 +35,7 @@ export DJANGO_SETTINGS_MODULE=settings.localdev
 
 # Some python settings
 
-alias p3="python3"
+function p3 { command python3 "$@"; }
 
 VENV_DIR=venv
 
@@ -69,6 +69,7 @@ EOT
 	esac
 }
 
+# xxx convert these to functions,eg, function p3 { command python3 "$@"; }
 # create a virtualenv in ./VENV_DIR
 alias venv_init="p3 -m venv ${VENV_DIR}"
 
@@ -89,8 +90,12 @@ alias blib="perl -Mblib"
 # $PERL_INSTALL_BASE interpolated at run time, eg, when "svu cur" in effect
 alias mkperl='perl Makefile.PL INSTALL_BASE=$PERL_INSTALL_BASE'
 
-# XXX should source these from $se/s/n2t/service.cfg
+yzprd='jkunze@id.cci.drexel.edu'
+	alias yzprd="ssh $yzprd"
 
+# XXX should source these from $se/s/n2t/service.cfg
+n2dev='n2t@ids-n2t2-dev.n2t.net'
+	alias n2dev="ssh $n2dev"
 n2dev='n2t@ids-n2t2-dev.n2t.net'
 	alias n2dev="ssh $n2dev"
 n2stg='n2t@ids-n2t2-stg.n2t.net'
@@ -105,8 +110,6 @@ n2dkprd='n2t@ids-n2tdocker-prd.n2t.net'
 	alias n2dkprd="ssh $n2dkprd"
 n2edina='n2t@n2tlx.edina.ac.uk'
 	alias n2edina="ssh $n2edina"
-yzdev='yamz@ids-yamz2-dev.yamz.net'
-	alias yzdev="ssh $yzdev"
 ezprd='ezid@ezid.cdlib.org'
 	alias ezprd="ssh $ezprd"
 
@@ -190,13 +193,14 @@ if [ ! -z "${PS1:-}" ]; then		# if interactive shell
 	PS1+='\$ '
 fi
 
-# General aliases and functions.
-# xxx should the aliases below become functions?
-alias c=clear	# health: clear often so eyes/neck not always at screen bottom
-alias h="history | tail -100"
-alias edate="date '+%Y%m%d%H%M%S'"              # even TEMPER date
-alias tdate="date '+%Y.%m.%d_%H:%M:%S'"         # TEMPER ERC-style date
-alias isodate="date '+%Y-%m-%dT%H:%M:%S%z'"	# ISO8601-style date
+# General functions.
+
+# health: clear often so eyes/neck not always at screen bottom
+function c { command clear "$@"; }
+function h { command history | tail -100 "$@"; }
+function edate { command date '+%Y%m%d%H%M%S' "$@"; }      # even TEMPER date
+function tdate { command date '+%Y.%m.%d_%H:%M:%S' "$@"; } # TEMPER ERC-style
+function isodate { command date '+%Y-%m-%dT%H:%M:%S%z' "$@"; } # ISO8601-style
 
 # "command" prevents recursion
 function ls { command ls -F "$@"; }
@@ -475,12 +479,17 @@ function func() {
 if [ ! -z "${SVU_USING:-}" ]; then	# if SVU mode is set
 	svu reset > /dev/null	# clear it out
 fi
-svu cur			# this is what we want by default
+if [ "$( func svu 2> /dev/null )" ]; then
+	svu cur			# this is what we want by default
+	# XXX maybe these should be set by svurun?
+	sa=$sv/apache2
+	sh=$sa/htdocs
+	she=$sh/e
+	se=$sv/build/eggnog
+	sn=~/n2t_create
+fi
 
-# XXX maybe these should be set by svurun?
-sa=$sv/apache2
-sh=$sa/htdocs
-she=$sh/e
-se=$sv/build/eggnog
-sn=~/n2t_create
+# General variable settings
+
+HISTCONTROL=ignoreboth	# ignore commands that duplicate or begin with space
 

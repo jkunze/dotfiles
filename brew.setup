@@ -4,7 +4,7 @@
 
 # Mac Modifier keys (do this again for external keyboard)
 #   swap caps lock and control, control and option
-#   add shortcut shift-command-, for "System Preferences..." (exact string)
+#   add shortcut control-command-, for "System Preferences..." (exact string)
 
 # run "brew doctor" to check on health of setup
 
@@ -42,10 +42,18 @@ sudo chsh -s /usr/local/bin/bash
 # Install GNU `sed`, overwriting the built-in `sed`.
 # YYY brew install gnu-sed --with-default-names
 
+# sharing secrets via GPG, sync'd via github
+brew install gopass
+
+# supports perldoc
+brew install groff
+
 # YYY brew install wget --with-iri Install `wget` with IRI support.
 brew install wget
 
 brew tap heroku/brew && brew install heroku
+
+brew install ansible
 
 # Install more recent versions of some macOS tools.
 # YYY brew install vim --with-override-system-vi
@@ -98,7 +106,6 @@ brew install --cask 1password
 
 # Docker
 brew install docker
-brew install docker-machine
 brew install virtualbox
 brew install docker-compose
 brew install --cask docker
