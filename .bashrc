@@ -151,12 +151,6 @@ if [ ! -z "${PS1:-}" ]; then		# if interactive shell
 	dvcs_dirty_pad='  '	# same width as dirty mark, for width bug
 	dvcs_branch=
 	function parse_dvcs_branch {
-		#dvcs_branch=$( hg branch 2> /dev/null ) && {
-		#	echo "$dvcs_branch"
-		#	#echo "<\[$yellow\]$dvcs_branch\[$reset\]>"
-		#	#echo "<$dvcs_branch>"
-		#	return
-		#}
 		dvcs_branch=$( git branch --no-color 2> /dev/null ) ||
 			return		# no git repo
 		dvcs_branch=$( sed -ne 's/^\* //p' <<< "$dvcs_branch" ) && {
@@ -168,10 +162,6 @@ if [ ! -z "${PS1:-}" ]; then		# if interactive shell
 		# yyy wish I could save $dvcs_branch in calling shell
 	}
 	function parse_dvcs_dirty {
-		#[[ $( hg --quiet status 2> /dev/null ) != "" ]] && {
-		#	echo "$dvcs_dirty_mark"
-		#	return
-		#}
 		local gitish=
 		#dvcs_dirty=$( git status 2> /dev/null ) &&
 		dvcs_dirty=$( git status --porcelain 2> /dev/null ) &&
@@ -219,15 +209,12 @@ function ll() { ls -lF "$@"; }
 function view() { command vim -R "$@"; }
 
 # usage:  mm any_command
-#function mm()  { $* $2 $3 $4 $5 $6 $7 $8 $9 | 2>&1 more ; }
 function mm()   { "$@" | 2>&1 less ; }
-function g()	{ git "$@" ; }
-
 # Grep: -d skip = "skip directories", -P = "Perl regexps", -i = "ignore case"
-# usage:  gr pattern any_command
-function gr() { $2 $3 $4 $5 $6 $7 $8 $9 | grep -Pi "$1" ; }
-function grep() { command grep -Pd skip "$@"; }
-function grepi() { command grep -Pid skip "$@"; }
+# usage:  g Pattern Any_command
+function grep() { command grep -Pid skip "$@"; }	# ignore-case
+function grepn() { command grep -Pd skip "$@"; }	# --no-ignore-case
+function g() { $2 $3 $4 $5 $6 $7 $8 $9 | grep "$1" ; }
 # -d skip means "skip directories"; -r after it says "but do recurse"
 function grepr() { command grep -Pid skip -r "$@"; }
 
