@@ -210,7 +210,16 @@ function ll() { ls -lF "$@"; }
 function view() { command vim -R "$@"; }
 
 # usage:  mm any_command
-function mm()   { "$@" | 2>&1 less ; }
+function mm()   {
+	[[ "$1" ]] || {
+		cat << EOT 1>&2
+Usage: mm CommandPipeline
+View output of CommandPipeline in a pager (ie, pipe it through "more").
+EOT
+		return 1
+	}
+	"$@" | 2>&1 less ;
+}
 
 # Grep: -d skip = "skip directories", -P = "Perl regexps", -i = "ignore case"
 # usage:  g Pattern Any_command
