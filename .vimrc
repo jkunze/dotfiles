@@ -14,7 +14,7 @@ vnoremap <leader>a <ESC>
 inoremap <leader>l <ESC>
 nnoremap <leader>l <ESC>
 vnoremap <leader>l <ESC>
-" alias ;; to escape key
+" alias ;; to just ;
 inoremap <leader><leader> ;
 nnoremap <leader><leader> ;
 vnoremap <leader><leader> ;

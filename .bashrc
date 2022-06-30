@@ -199,6 +199,7 @@ function cp { command cp -p "$@"; }
 function scp { command scp -p "$@"; }
 function df { command df -k "$@"; }
 
+function gi() { command git "$@"; }
 function j() { jobs -l "$@"; }
 function m() { less "$@"; }
 function q() { exit "$@"; }
@@ -210,13 +211,31 @@ function view() { command vim -R "$@"; }
 
 # usage:  mm any_command
 function mm()   { "$@" | 2>&1 less ; }
+
 # Grep: -d skip = "skip directories", -P = "Perl regexps", -i = "ignore case"
 # usage:  g Pattern Any_command
 function grep() { command grep -Pid skip "$@"; }	# ignore-case
 function grepn() { command grep -Pd skip "$@"; }	# --no-ignore-case
-function g() { $2 $3 $4 $5 $6 $7 $8 $9 | grep "$1" ; }
+
 # -d skip means "skip directories"; -r after it says "but do recurse"
 function grepr() { command grep -Pid skip -r "$@"; }
+
+# not sure why pgrep/pkill doesn't have -fl by default
+#   -f matches full arg list
+#   -l lists full arg list
+function pgrep() { command pgrep -fl "$@"; }
+function pkill() { command pkill -fl "$@"; }
+
+function g() {
+	[[ "$1" || "$2" ]] || {
+		cat << EOT 1>&2
+Usage: g Pattern CommandPipeline
+Print lines matching (grep) Pattern in the output of CommandPipeline.
+EOT
+		return 1
+	}
+	$2 $3 $4 $5 $6 $7 $8 $9 | grep "$1" ;
+}
 
 function hd()   { "$@" | head -5 ; }
 function hd1()  { "$@" | head -1 ; }
