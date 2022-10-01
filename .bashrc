@@ -187,6 +187,7 @@ fi
 
 # health: clear often so eyes/neck not always at screen bottom
 function c { command clear "$@"; }
+HISTSIZE=10000			# history list limited to 10000 lines
 function h { command history | tail -100 "$@"; }
 function edate { command date '+%Y%m%d%H%M%S' "$@"; }      # even TEMPER date
 function tdate { command date '+%Y.%m.%d_%H:%M:%S' "$@"; } # TEMPER ERC-style
@@ -218,7 +219,7 @@ View output of CommandPipeline in a pager (ie, pipe it through "more").
 EOT
 		return 1
 	}
-	"$@" | 2>&1 less ;
+	"$@" 2>&1 | less ;
 }
 
 # Grep: -d skip = "skip directories", -P = "Perl regexps", -i = "ignore case"
@@ -239,11 +240,20 @@ function g() {
 	[[ "$1" || "$2" ]] || {
 		cat << EOT 1>&2
 Usage: g Pattern CommandPipeline
-Print lines matching (grep) Pattern in the output of CommandPipeline.
+Grep for lines matching Pattern in the stdout or stderr of CommandPipeline.
 EOT
 		return 1
 	}
-	$2 $3 $4 $5 $6 $7 $8 $9 | grep "$1" ;
+	$2 $3 $4 $5 $6 $7 $8 $9 2>&1 | grep -e "$1" ;
+}
+
+function d() {
+	[[ "$1" ]] || {
+		cat << EOT 1>&2
+** "d" is a local bash alias (function) for "docker" **
+EOT
+	}
+	docker "$@"
 }
 
 function hd()   { "$@" | head -5 ; }

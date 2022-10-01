@@ -39,8 +39,10 @@ sudo chsh -s /usr/local/bin/bash
 # YYY brew install moreutils
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed.
 # YYY brew install findutils
+
 # Install GNU `sed`, overwriting the built-in `sed`.
-# YYY brew install gnu-sed --with-default-names
+# but need to add /usr/local/opt/gnu-sed/libexec/gnubin to path
+brew install gnu-sed
 
 # sharing secrets via GPG, sync'd via github
 brew install gopass
@@ -52,6 +54,8 @@ brew install groff
 brew install wget
 
 brew tap heroku/brew && brew install heroku
+
+brew install ipfs
 
 brew install ansible
 
@@ -78,6 +82,8 @@ brew install pyenv
 brew install rbenv ruby-build
 # javascript package manager, used by rails/sqlite3
 brew install yarn
+# turn github pages into web site, blogging platform, etc
+brew install quarto
 
 brew install go
 brew install pandoc
@@ -88,6 +94,7 @@ brew install dropbox
 # next one is needed by youtube-dl
 brew install ffmpeg
 brew install exif
+brew install jupyterlab
 
 # fuzzy finder -- drop?
 brew install fzf
