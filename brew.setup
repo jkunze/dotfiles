@@ -64,9 +64,10 @@ brew install ansible
 # grep arrives as ggrep (or grep in /usr/local/opt/grep/libexec/gnubin)
 brew install grep
 brew install git
-brew install jq
-brew install csvkit
-brew install xsv
+brew install jq		# json query
+brew install jc		# json convert from many CLI tools and file types
+brew install xsv	# fast csv tool
+brew install csvkit	# larger csv tool
 brew install logrotate
 brew install lynx
 brew install sqlite3
@@ -95,11 +96,12 @@ brew install dropbox
 brew install ffmpeg
 brew install exif
 brew install jupyterlab
+brew install tldr	# show simple examples for man pages
 
 # fuzzy finder -- drop?
 brew install fzf
 # rg command -- drop?
-brew install ripgrep
+brew install ripgrep		# recursively search current dir for regex
 
 # Install apps using Homebrew.
 brew install --cask iterm2
