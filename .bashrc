@@ -46,25 +46,30 @@ function venv() {
 	case $cmd in
 	on)
 		[[ "$not" ]] && {
-			echo Initializing $VENV_DIR sub-directory.
-			python3 -m venv $VENV_DIR
+			echo Error: no \"$VENV_DIR\" sub-directory. \
+				To create one, do \"venv make\". 1>&2
+			return 1
 		}
 		source ${VENV_DIR}/bin/activate
 		;;
 	off)
-		[[ "$not" ]] && {
-			echo No $VENV_DIR sub-directory, \
-				so nothing to deactivate.
+		deactivate || echo "(No virtual environment active?)"
+		;;
+	make)
+		[[ ! "$not" ]] && {
+			echo Error: there\'s already a $VENV_DIR directory. 1>&2
 			return 1
 		}
-		deactivate
+		echo Initializing $VENV_DIR sub-directory. \
+			Do \"venv on\" to activate.
+		python3 -m venv $VENV_DIR
 		;;
 	*)
 		cat << EOT 1>&2
-Usage: venv [ on | off | help ]
-Turn Python virtualenv on or off, initializing it if need be.
-There is$not a $VENV_DIR sub-directory present here.
+Usage: venv [ on | off | make | help ]
+Turn Python virtualenv on or off, or make a new $VENV_DIR directory.
 EOT
+#There is$not a $VENV_DIR sub-directory in the current directory.
 		return 1
 	esac
 }

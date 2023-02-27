@@ -30,6 +30,11 @@ sudo chsh -s /usr/local/bin/bash
 
 # Install command-line tools using Homebrew.
 
+# OpenAI ChatGPT API thing
+brew install gofireflyio/aiac/aiac
+# get key from their site: export OPENAI_API_KEY=<key you got from them>
+# then, eg, $ aiac get dockerfile for nodejs application
+
 # Install GNU core utilities (those that come with macOS are outdated).
 # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
 # YYY brew install coreutils
