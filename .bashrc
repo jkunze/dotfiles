@@ -89,6 +89,18 @@ function gitid() {
 	git show --oneline | sed 's/ .*//;q'
 }
 
+# ansible kludges to stop complaint about locale:
+# ERROR: Ansible requires the locale encoding to be UTF-8; Detected None.
+function ansible { LC_ALL=en_US.UTF-8 command ansible "$@"; }
+function ansible-playbook { LC_ALL=en_US.UTF-8 command ansible-playbook "$@"; }
+function ansible-doc { LC_ALL=en_US.UTF-8 command ansible-doc "$@"; }
+# do it for all others?
+# ansible             ansible-doc         ansible-pull
+# ansible-community   ansible-galaxy      ansible-test
+# ansible-config      ansible-inventory   ansible-vault
+# ansible-connection  ansible-lint
+# ansible-console     ansible-playbook
+
 # Some aliases that make n2t/eggnog development and testing easier.
 #
 alias blib="perl -Mblib"

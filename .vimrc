@@ -1,3 +1,19 @@
+" vim-plug tutorial: https://github.com/junegunn/vim-plug/wiki/tutorial
+" Run :PlugInstall to install plugins
+" Run :PlugUpdate to update and :PlugDiff to review changes
+" Run :PlugClean to detect and remove undeclared (eg, commented out) plugins
+
+" Plugins will be downloaded under the specified directory.
+call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
+
+" Declare the list of plugins.
+Plug 'github/copilot.vim'
+Plug 'tpope/vim-sensible'
+"Plug 'junegunn/seoul256.vim'
+
+" List ends here. Plugins become visible to Vim after this call.
+call plug#end()
+
 " MacOS modifier key settings: Ctrl->Opt, Opt->Ctrl, CapsLock->Ctl (avoiding chords)
 " Other settings designed to help avoid over-use of left little finger.
 "  for some advice, much not followed
@@ -51,13 +67,14 @@ set showmatch
 hi Search ctermbg=Brown
 set nohlsearch
 nnoremap \\ :set hlsearch<cr>:sleep 1<cr>:set nohlsearch<cr>
-inoremap <leader><TAB> <ESC>
+inoremap <leader><TAB> <ESC>:set noexpandtaba<TAB><ESC>:set expandtaba
 " these tab settings seem a wasted opportunity
 nnoremap <tab> %
 vnoremap <tab> %
 
 syntax on
-autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
+" autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
+set expandtab tabstop=4 shiftwidth=4 softtabstop=4
 set background=dark
 set vb t_vb=
 set spelllang=en_us
@@ -128,3 +145,4 @@ nnoremap <C-k> <C-u><C-u>
 " nnoremap <leader>^ :,$s/^/> /''
 " nnoremap <leader>& :,$s/^> \?//''
 " nnoremap <leader>1 :pu s1G"spWifyi - oBcc: m/j/^Subject:
+

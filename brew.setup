@@ -30,6 +30,12 @@ sudo chsh -s /usr/local/bin/bash
 
 # Install command-line tools using Homebrew.
 
+# "hey" sends load to a server, eg, to simulate denial of service attach and to test your defences
+brew install hey
+# python templating, similar in function to m4 macro preprocessing
+brew install jinja2-cli
+# free tier hosting, similar to deta.sh?
+brew install flyctl`
 # OpenAI ChatGPT API thing
 brew install gofireflyio/aiac/aiac
 # get key from their site: export OPENAI_API_KEY=<key you got from them>
@@ -64,6 +70,11 @@ brew install ipfs
 
 brew install ansible
 
+# use vim-plug to install plugins
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+# see https://github.com/junegunn/vim-plug/wiki/tutorial to install vim
+#     plugin https://github.com/github/copilot.vim
+
 # Install more recent versions of some macOS tools.
 # YYY brew install vim --with-override-system-vi
 # grep arrives as ggrep (or grep in /usr/local/opt/grep/libexec/gnubin)
@@ -90,6 +101,7 @@ brew install rbenv ruby-build
 brew install yarn
 # turn github pages into web site, blogging platform, etc
 brew install quarto
+brew install poetry
 
 brew install go
 brew install pandoc
