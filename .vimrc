@@ -58,6 +58,7 @@ set modelines=0		" for security
 " nnoremap / /\v
 " vnoremap / /\v
 
+set foldmethod=marker
 set ignorecase
 set smartcase
 set gdefault		" appends g by default to s///; add g yourself to stop
@@ -67,7 +68,8 @@ set showmatch
 hi Search ctermbg=Brown
 set nohlsearch
 nnoremap \\ :set hlsearch<cr>:sleep 1<cr>:set nohlsearch<cr>
-inoremap <leader><TAB> <ESC>:set noexpandtaba<TAB><ESC>:set expandtaba
+" inoremap <leader><TAB> <ESC>:set noexpandtaba<TAB><ESC>:set expandtaba
+inoremap <leader><TAB> 	
 " these tab settings seem a wasted opportunity
 nnoremap <tab> %
 vnoremap <tab> %
