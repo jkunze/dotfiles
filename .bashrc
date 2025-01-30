@@ -504,9 +504,9 @@ function func() {
 		alias
 		echo
 		echo === FUNCTIONS ===
-		declare -f | sed '/^}/a\
+		declare -f | sed '/^\}/a\
 \
-' | perl -00 -pe 's/\s*\(/\t(/; s/\n{\s*/{ /; s/\n}\s*$/; }\n/; s/\n\s+/ /g; s/\(\) //;'
+' | perl -00 -pe 's/\s*\(/\t(/; s/\n\{\s*/\{ /; s/\n\}\s*$/; \}\n/; s/\n\s+/ /g; s/\(\) //;'
 		return
 	fi;
 	for f in "$@"; do

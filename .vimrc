@@ -3,16 +3,16 @@
 " Run :PlugUpdate to update and :PlugDiff to review changes
 " Run :PlugClean to detect and remove undeclared (eg, commented out) plugins
 
-" Plugins will be downloaded under the specified directory.
-call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
+"" Plugins will be downloaded under the specified directory.
+"call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 
-" Declare the list of plugins.
-Plug 'github/copilot.vim'
-Plug 'tpope/vim-sensible'
-"Plug 'junegunn/seoul256.vim'
+"" Declare the list of plugins.
+"Plug 'github/copilot.vim'
+"Plug 'tpope/vim-sensible'
+""Plug 'junegunn/seoul256.vim'
 
-" List ends here. Plugins become visible to Vim after this call.
-call plug#end()
+"" List ends here. Plugins become visible to Vim after this call.
+"call plug#end()
 
 " MacOS modifier key settings: Ctrl->Opt, Opt->Ctrl, CapsLock->Ctl (avoiding chords)
 " Other settings designed to help avoid over-use of left little finger.
