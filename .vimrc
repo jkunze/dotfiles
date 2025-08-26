@@ -99,8 +99,9 @@ nnoremap <leader>] :set ai ic
 " nnoremap <leader>n :w:nn
 " like Cmd C for paste/put
 nnoremap <leader>c m'"my'm''
+nnoremap <leader>b :rewind
 nnoremap <leader>d "md'm
-nnoremap <leader>e :e
+nnoremap <leader>e :e<space>
 nnoremap <leader>f :file<space>
 nnoremap <leader>i "mP
 nnoremap <leader>k i<C-R>=strftime("%Y.%m.%d")<CR><CR><ESC>
