@@ -273,6 +273,8 @@ EOT
 	docker "$@"
 }
 
+function rga()   { rg --no-ignore-vcs "$@" ; }  # ripgrep most everything
+
 function hd()   { "$@" | head -5 ; }
 function hd1()  { "$@" | head -1 ; }
 function hd2()  { "$@" | head -10 ; }
