@@ -9,7 +9,7 @@
 # suitable for N2T administration, among other things.
 
 # A starter $PATH definition, modified by "source .profile.d/$whoami"
-PATH=$HOME/.local/bin:$HOME/local/bin:$PATH
+PATH=$HOME/local/bin:$PATH
 
 #function svu { eval `svu_run "$PS1"\|\|\|b $*`; }
 if [ -f "$HOME/.svudef" ]; then
