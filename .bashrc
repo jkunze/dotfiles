@@ -8,6 +8,9 @@
 # is source'd by .bash_profile on shell start up to create an environment
 # suitable for N2T administration, among other things.
 
+# silence Mac OS trying to get me to switch to /bin/zsh
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
 # A starter $PATH definition, modified by "source .profile.d/$whoami"
 PATH=$HOME/local/bin:$PATH
 
@@ -536,4 +539,3 @@ fi
 # General variable settings
 
 HISTCONTROL=ignoreboth	# ignore commands that duplicate or begin with space
-
