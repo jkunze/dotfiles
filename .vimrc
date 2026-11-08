@@ -11,6 +11,10 @@
 "Plug 'tpope/vim-sensible'
 ""Plug 'junegunn/seoul256.vim'
 
+" Disable GitHub Copilot by default, because it uses up my limited free quota
+" too quickly. Enable it with :Copilot enable when needed.
+let g:copilot_enabled = v:false
+
 "" List ends here. Plugins become visible to Vim after this call.
 "call plug#end()
 
@@ -37,13 +41,22 @@ vnoremap <leader><leader> ;
 " re-expose ; as ;, -- maybe it should be <tab>?
 "nnoremap <leader>, ;
 
+" make j and k keys always move by screen lines; arrow keys not affected
+nnoremap j gj
+nnoremap k gk
+vnoremap j gj
+vnoremap k gk
+
 " alias SP to : since : requres shift (a chord) for very common key
+vnoremap <space> :
 nnoremap <space> :
-"        │     (nb: '│' != '|')
+"        │     (nb: line drawing character '│' is different from '|')
 "        └─── mnemonic: go to "space" along full bottom of screen (or keyboard)
 " nnoremap : ;
 
 " ALT alias SP to ; "find again forward" is very common; (find again back = ,)
+" * overwrites above setting -- leaving both until I make up my mind
+vnoremap <space> ;
 nnoremap <space> ;
 
 " nnoremap <leader>, ,

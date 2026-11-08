@@ -140,13 +140,9 @@ if [ ! -z "${PS1:-}" ]; then		# if interactive shell
 
 	[ -f /usr/local/etc/bash_completion ] &&
 		source /usr/local/etc/bash_completion
-	#blue=$(tput setaf 4)
-	yellow=$(tput setaf 3)
-	reset=$(tput sgr0)
-        #PS1='\[$blue\]\h:\W \u\$ \[$reset\]'
+
 	# Make bash check its window size after a process completes
-	# Enable some Bash 4 features when possible:
-	# * Recursive globbing, e.g. `echo **/*.txt`
+	# Enable recursive globbing, e.g. `echo **/*.txt`
 	for option in direxpand globstar; do
 		shopt -s "$option" 2> /dev/null;
 	done;
@@ -154,53 +150,52 @@ if [ ! -z "${PS1:-}" ]; then		# if interactive shell
 	shopt -s checkwinsize
 	#set -o vi		# for vi-style command line editing
 
-	# Code below sets prompt to indicate which mercurial or git
-	# branch is active, and whether there's anything to commit.
+    # Prompt wrangling
 
-	# Code adapted (--quiet, changing ⚡ to ** because of utf8 character
-	# width problems) from
-	# https://blog.progs.be/351/change-bash-prompt-to-include-dvcs-branch-and-dirty-indicator
+    #yellow="\[\033[33m\]"
+    #reset="\[\033[0m\]"
+    #SOH=$'\001'
+    #STX=$'\002'
+	#yellow="${SOH}$(tput setaf 3)${STX}"
+	#reset="${SOH}$(tput sgr0)${STX}"
+    #_sc=$(tput sc)
+    #_rc=$(tput rc)
 
-	# From https://stackoverflow.com/questions/7112774/how-to-escape-unicode-characters-in-bash-prompt-correctly
-	# tput sc/rc gets around bash bug in correct unicode char widths
-	#dirty='\[$yellow\]**\[$reset\]'
+	yellow="$(tput setaf 3)"
+	reset="$(tput sgr0)"
+
+    # Split prompt string into two lines because I can't make bash correctly
+    # compute screen width of (a) zero-width color transitions and (b) wide
+    # unicode characters. Second line has no fancy transitions or chars.
+    # XXX this may be due to svu re-setting PS1... 
+
+    PS1='${yellow}\h${reset} \W <${yellow}$(parse_dvcs_branch)${reset}>$(parse_dvcs_dirty)\n\u \$ '
+
+    ##PS1='\[$yellow\]\h\[$reset\] \W <\[$yellow\]$(parse_dvcs_branch)\[$reset\]>\[$_sc\]$dvcs_dirty_pad\[$_rc\]\[$(parse_dvcs_dirty)\]\n\u \$ '
+
 	dvcs_dirty_mark='⚡'
-# xxx until Nov 2018, high sierra, bash 4.4.12, this next pad was only one
-#     space, ie, ' '; not tested this under linux2
-# xxx maybe this need for padding etc is obviated!
 	dvcs_dirty_pad='  '	# same width as dirty mark, for width bug
-	dvcs_branch=
-	function parse_dvcs_branch {
-		dvcs_branch=$( git branch --no-color 2> /dev/null ) ||
+	function parse_dvcs_branch {   # maybe there's a better test
+		dvcs_branch=$( git branch --no-color 2> /dev/null ) || {
+            echo -e ""
 			return		# no git repo
+        }
 		dvcs_branch=$( sed -ne 's/^\* //p' <<< "$dvcs_branch" ) && {
 			# cleans up multi-line git branch message
-			echo "$dvcs_branch"
-			#echo "<$dvcs_branch>"
+			echo -e "$dvcs_branch"
 			return
 		}
-		# yyy wish I could save $dvcs_branch in calling shell
 	}
 	function parse_dvcs_dirty {
 		local gitish=
-		#dvcs_dirty=$( git status 2> /dev/null ) &&
-		dvcs_dirty=$( git status --porcelain 2> /dev/null ) &&
-			gitish=1		# git repo present
-		#[[ "$gitish" && ! $( tail -n1 <<< "$dvcs_dirty" ) =~ \
-		#		'nothing to commit, working' ]] && {
-		[[ "$gitish" && $( grep -vs '^\?\?' <<< "$dvcs_dirty" ) ]] && {
-			echo "$dvcs_dirty_mark"
+		dvcs_dirty=$( git status --porcelain 2> /dev/null ) # git repo present
+		[[ $( grep -vs '^\?\?' <<< "$dvcs_dirty" ) ]] && {
+			echo -e "$dvcs_dirty_mark"
 			return
 		}
-		echo "$dvcs_dirty_pad"
+		echo -e "$dvcs_dirty_pad"
 		return
 	}
-	#PS1+='$(parse_dvcs_branch)\[$yellow\]$(parse_dvcs_dirty)\[$reset\]'
-	PS1='\[$yellow\]\h\[$reset\]:\W \u'
-	PS1+='<\[$yellow\]$(parse_dvcs_branch)\[$reset\]>'
-	PS1+='\[`tput sc`\]$dvcs_dirty_pad\[`tput rc`$(parse_dvcs_dirty)\]'
-	#PS1+='\[`tput sc`\]$dvcs_dirty_pad\[`tput rc`$dvcs_dirty_mark\]'
-	PS1+='\$ '
 fi
 
 # General functions.
