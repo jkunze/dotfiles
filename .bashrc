@@ -187,7 +187,7 @@ if [ ! -z "${PS1:-}" ]; then		# if interactive shell
 		}
 	}
 	function parse_dvcs_dirty {
-		local gitish=
+		#local gitish=
 		dvcs_dirty=$( git status --porcelain 2> /dev/null ) # git repo present
 		[[ $( grep -vs '^\?\?' <<< "$dvcs_dirty" ) ]] && {
 			echo -e "$dvcs_dirty_mark"
